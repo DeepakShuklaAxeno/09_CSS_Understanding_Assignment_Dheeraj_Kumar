@@ -30,7 +30,7 @@ body {
     background-color: $bg-main;
     display: flex;
     flex-direction: row;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ body {
   
     .poster {
         flex: 1;
-        padding: 3rem 2rem;
+        padding: 1rem 2rem;
         display: flex;
         flex-direction: column;
         background-color: $bg-page;
