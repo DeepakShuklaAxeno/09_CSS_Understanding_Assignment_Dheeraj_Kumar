@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="left-container">
+        <div class="page-nav">
+            <a class="nav-link" href="banner.html">Banner Page</a>
+            <a class="nav-link" href="blog.html">Blog Page</a>
+        </div>
+    </div>
+    
+        <div class="card card1">
+            <div class="image-container">
+
+                <img class="card-image" src="image1.png" alt="">
+            </div>
+            <div class="card-text">
+
+                <h3 class="card-heading">Card1: Leaf</h3>
+                <p class="card-description">A photo taken with dark green leaves.</p>
+            </div>
+
+            
+
+        </div>
+        <div class="card card2">
+            
+            <div class="image-container">
+
+                <img class="card-image" src="image2.webp" alt="">
+            </div>
+            <div class="card-text">
+
+                <h3 class="card-heading">Card2: Leaf</h3>
+                <p class="card-description">A photo taken with dark green leaves.</p>
+            </div>
+        </div>
+        </div>
+        <div class="card card3">
+            
+            <div class="image-container">
+
+                <img class="card-image" src="image3.webp" alt="">
+            </div>
+            <div class="card-text">
+
+                <h3 class="card-heading">Card3: Single Tree</h3>
+                <p class="card-description">A singel tree with green blue background of a forest grassland.</p>
+            </div>
+        </div>
+        </div>
+        <div class="card card4">
+           
+            <div class="image-container">
+
+                <img class="card-image" src="image4.webp" alt="">
+            </div>
+            <div class="card-text">
+
+                <h3 class="card-heading">Card4:Mountain</h3>
+                <p class="card-description">A rocky mountain cliff with blue cloudy sky.</p>
+            </div>
+        </div>
+        </div>
+    
+    <script>
+        let zmax = 5;
+        document.querySelectorAll('.card').forEach((card) => {
+            card.addEventListener('click',() => {
+                card.style.zIndex=zmax++;
+                
+            });
+        });
+    </script>
+    
+</body>
+</html>
