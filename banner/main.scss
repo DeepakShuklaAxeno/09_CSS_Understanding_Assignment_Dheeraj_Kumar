@@ -1,0 +1,228 @@
+@function convert($px) {
+    @return ($px / 16) * 1rem;
+}
+
+
+$bg-main: #657DF9;
+$bg-page: white;
+$basic-color: #FFD85C;
+$premium-color: #A26BFA;
+$ultimate-color: #55D491; 
+$text-dark: #333333;
+$text-light: #777777;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: $bg-main;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    background-color: $bg-main;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    
+  
+    .poster {
+        flex: 1;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $bg-page;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+
+       
+        .price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            border: 2px solid; 
+            padding: 6px; 
+            background-color: white;
+            
+            .price-no {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                border-radius: 50%;
+                
+                h1 {
+                    font-size: 2.2rem;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: flex-start;
+                    
+                    sup {
+                        font-size: 1rem;
+                        margin-top: 0.5rem;
+                        margin-right: 0.2rem;
+                    }
+                }
+            }
+        }
+
+
+        .price__plan {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            
+            .linethrough {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: $text-dark;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                flex: 1;
+                height: 1px;
+            }
+        }
+
+        .poster__points {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .plan-offering {
+                font-size: 0.85rem;
+                color: $text-dark;
+                text-align: left;
+                font-weight: 500;
+            }
+            
+            .tick {
+                color: #55D491; 
+                font-size: 1rem;
+                font-weight: 700;
+            }
+            
+            .cross {
+                color: #FF4B4B; 
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+
+       
+        .purchase-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 2rem;
+            outline: none;
+            width: 80%;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+      
+        &.basic {
+            .price { border-color: $basic-color; }
+            .price-no { background-color: $basic-color; }
+            .price__plan::before, .price__plan::after { background-color: lighten($basic-color, 15%); }
+            
+            .purchase-btn {
+                border: 2px solid $basic-color;
+                color: $basic-color;
+                
+                &:hover {
+                    background-color: $basic-color;
+                    color: white;
+                }
+            }
+        }
+
+        &.premium {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 0 35px rgba(162, 107, 250, 0.2);
+            position: relative;
+            overflow: hidden;
+            &::before {
+                content: "RECOMMEND";
+                position: absolute;
+                top: 25px;
+                left: -35px;
+                background-color: lighten($premium-color, 10%);
+                color: white;
+                padding: 5px 40px;
+                font-size: 0.6rem;
+                font-weight: bold;
+                transform: rotate(-45deg);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+
+            .price { border-color: $premium-color; }
+            .price-no { background-color: $premium-color; }
+            .price__plan::before, .price__plan::after { background-color: lighten($premium-color, 15%); }
+            
+            .purchase-btn {
+                border: 2px solid $premium-color;
+                background-color: $premium-color;
+                color: white;
+                
+                &:hover {
+                    background-color: darken($premium-color, 10%);
+                    border-color: darken($premium-color, 10%);
+                }
+            }
+        }
+
+        &.ultimate {
+            .price { border-color: $ultimate-color; }
+            .price-no { background-color: $ultimate-color; }
+            .price__plan::before, .price__plan::after { background-color: lighten($ultimate-color, 15%); }
+            
+            .purchase-btn {
+                border: 2px solid $ultimate-color;
+                color: $ultimate-color;
+                
+                &:hover {
+                    background-color: $ultimate-color;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        .poster {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+}
